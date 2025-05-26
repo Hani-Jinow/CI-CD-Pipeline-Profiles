@@ -2,7 +2,7 @@ name: CICD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feature/test-csv"]
   pull_request:
     branches: [ "main" ]
 permissions:
@@ -19,8 +19,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       # Runs a single command using the runners shell
-      - name: Run unit tests
-        run: python dummyTests.py      
+      - name: Install dependencies
+        run: pip install pandas
+
+      - name: Run all tests
+        run: python -m unittest discover -s tests -p '*Tests.py' -v    
 
         
       # lägg till create csv file (glöm inte pip install)
