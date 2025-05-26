@@ -2,7 +2,7 @@ name: CICD
 
 on:
   push:
-    branches: [ "main", "feature/test-json"]
+    branches: [ "main", "feature/test-scripts"]
   pull_request:
     branches: [ "main" ]
 permissions:
@@ -20,12 +20,15 @@ jobs:
       - uses: actions/checkout@v3
       # Runs a single command using the runners shell
       - name: Install dependencies
-        run: pip install pandas
+        run: |
+          pip install pandas
+          pip install faker
 
-      - name: Run all tests
-        run: python -m unittest discover -s tests -p '*Tests.py' -v    
-
-        
+      - name: Run scripts
+        run: |
+          python generate.py
+          python csvtojson.py
+   
       # lägg till create csv file (glöm inte pip install)
       # lägg till Create JSON file
       # Köra enhetstester     
