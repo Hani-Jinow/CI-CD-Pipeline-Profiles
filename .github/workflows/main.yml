@@ -2,7 +2,7 @@ name: CICD
 
 on:
   push:
-    branches: [ "main", "feature/test-json"]
+    branches: [ "main", "feature/test-scripts"]
   pull_request:
     branches: [ "main" ]
 permissions:
