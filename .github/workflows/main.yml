@@ -19,7 +19,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       # Runs a single command using the runners shell
-      - name: Run CSV tests
+      - name: Run all tests
         run: python -m unittest discover -s tests -p '*Tests.py' -v    
 
         
