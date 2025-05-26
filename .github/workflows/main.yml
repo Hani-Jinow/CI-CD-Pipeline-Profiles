@@ -2,7 +2,7 @@ name: CICD
 
 on:
   push:
-    branches: [ "main", "feature/test-scripts"]
+    branches: [ "main"]
   pull_request:
     branches: [ "main" ]
 permissions:
@@ -28,6 +28,9 @@ jobs:
         run: |
           python generate.py
           python csvtojson.py
+
+      - name: Run all tests
+        run: python -m unittest discover -s tests -p '*Tests.py' -v
    
       # lägg till create csv file (glöm inte pip install)
       # lägg till Create JSON file
