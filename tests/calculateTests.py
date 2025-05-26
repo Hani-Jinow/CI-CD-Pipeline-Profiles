@@ -1,6 +1,6 @@
 import unittest
 
-from calculate import canIBuyBeer
+from tests.calculate import canIBuyBeer
 
 
 class TestBeer(unittest.TestCase):
