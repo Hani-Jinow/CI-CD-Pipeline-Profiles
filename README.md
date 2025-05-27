@@ -78,4 +78,3 @@ It displays the generated customer data from `data.json`.
 - GitHub Actions
 - GitHub Pages
 
----
